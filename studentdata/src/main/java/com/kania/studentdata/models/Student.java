@@ -11,6 +11,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "students")
 public class Student {
+
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,13 +25,13 @@ public class Student {
 	
 	public int getAge() {
         if (this.DoB == null) {
-            return 0; // Handle null case
+            return 0;
         }
 
-        LocalDate birthDate = this.DoB.toLocalDate(); // Convert java.sql.Date to LocalDate
+        LocalDate birthDate = this.DoB.toLocalDate(); 
         LocalDate currentDate = LocalDate.now();
 
-        return Period.between(birthDate, currentDate).getYears(); // Accurate age calculation
+        return Period.between(birthDate, currentDate).getYears(); 
     }
 
 	public int getNIM() {
